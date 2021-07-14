@@ -10,7 +10,8 @@ FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 # LABEL command adds metadata to the docker image.
 # LABEL maintainer="ilya_valchanka@gmail.com"
 
-# WORKDIR command sets a working directory for the next command.
+# WORKDIR command sets a working directory for all subsequent commands.
+# The command tells Docker to create the directory.
 WORKDIR /app
 
 # EXPOSE command says that the provided port has to be opened.
@@ -24,6 +25,10 @@ COPY ["dymmy-asp-net-core-web-api.csproj", "."]
 
 # RUN command executes a command. It's used for installing packages in a docker container.
 RUN dotnet restore "./dymmy-asp-net-core-web-api.csproj"
+
+# The command below copies everything what in our working directory and put it into
+# inside the image in the dummy directory.
+# COPY . /dummy
 
 COPY . .
 WORKDIR "/src/."
@@ -40,4 +45,6 @@ COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "dymmy-asp-net-core-web-api.dll"] 
 
 # ENV command sets system variables
+# ENV {var-name} {var-value}
+
 # VOLUME command is used for mounting a persistent storage.
