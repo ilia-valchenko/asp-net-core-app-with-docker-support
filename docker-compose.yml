@@ -1,0 +1,11 @@
+version: '2'
+services: 
+    web: 
+        build: 
+            context: .
+            dockerfile: Dockerfile
+        # 'web' will be used as a name of a docker image.
+        # The 'web' image will be built.
+        container_name: web
+        ports:
+            - "42900:80"
