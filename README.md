@@ -6,6 +6,7 @@ You can you the commands below to build an image and run a container:
 `docker run -d -p 42900:80 --name dummy-app-container-v1 dummy-app-image-v1`
 
 Use the power of Docker compose by running the command below if you want to run a few container:
+
 `docker-compose up -d`
 
 Use the credentials below to connect to the instance of SQL server
