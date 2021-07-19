@@ -14,7 +14,8 @@ services:
 
 before_install:
   - wget -qO- https://toolbelt.heroku.com/install.sh | sh #installed heroku CLI
-  - docker login -u "$HEROKU_USERNAME" --password=$HEROKU_PASSWORD registry.heroku.com #logged in
+  # - docker login -u "$HEROKU_USERNAME" --password=$HEROKU_PASSWORD registry.heroku.com #logged in
+  - docker login --username=_ --password=$HEROKU_AUTH_TOKEN registry.heroku.com
 
 # script:
 #   #build the image
