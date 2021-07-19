@@ -13,3 +13,8 @@ Use the credentials below to connect to the instance of SQL server
 - Server name: 127.0.0.1,1433
 - Login: sa
 - Password: Your_password123
+
+## Continuous Integration
+- Continuous integration service: Travis CI
+- Cloud platform: Heroku
+
