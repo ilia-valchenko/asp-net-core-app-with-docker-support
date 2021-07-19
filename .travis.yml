@@ -31,7 +31,7 @@ script:
   # - docker tag 1000003/asp-net-core-app-with-docker-support:latest 1000003/asp-net-core-app-with-docker-support:registry.heroku.com/dummy-asp-net-core-app-v1/web
   # docker tag <image> registry.heroku.com/<app>/<process-type>
   - docker tag 1000003/asp-net-core-app-with-docker-support:latest registry.heroku.com/dummy-asp-net-core-app-v1/web
+  - heroku container:login
   - docker push registry.heroku.com/dummy-asp-net-core-app-v1/web
   # - ( echo "$HEROKU_USERNAME" echo "$HEROKU_PASSWORD" ) | heroku login -i
-  - heroku container:login
   - heroku container:release web --app dummy-asp-net-core-app-v1
