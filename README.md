@@ -16,4 +16,4 @@ Use the credentials below to connect to the instance of SQL server
 
 ## Continuous Integration
 - Continuous integration service: Travis CI
-- Cloud platform: Heroku
+- Cloud platform: Heroku (don't forget to add `HEROKU_API_KEY` environment variable)
