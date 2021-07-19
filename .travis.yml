@@ -28,7 +28,7 @@ before_install:
 script:
   - docker build --no-cache -t 1000003/asp-net-core-app-with-docker-support .
   # - docker tag quarkus7/which-tram registry.heroku.com/$HEROKU_APP_NAME/web
-  - docker tag 1000003/asp-net-core-app-with-docker-support:latest 1000003/asp-net-core-app-with-docker-support:v1
+  - docker tag 1000003/asp-net-core-app-with-docker-support:latest 1000003/asp-net-core-app-with-docker-support:registry.heroku.com/dummy-asp-net-core-app-v1/web
   - docker push registry.heroku.com/dummy-asp-net-core-app-v1/web
   # - ( echo "$HEROKU_USERNAME" echo "$HEROKU_PASSWORD" ) | heroku login -i
   - heroku container:login
