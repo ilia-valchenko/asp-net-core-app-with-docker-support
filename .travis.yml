@@ -14,8 +14,6 @@ services:
 
 before_install:
   - wget -qO- https://toolbelt.heroku.com/install.sh | sh #installed heroku CLI
-  # - docker login -u "$HEROKU_USERNAME" --password=$HEROKU_PASSWORD registry.heroku.com #logged in
-  # - docker login --username=_ --password=$HEROKU_AUTH_TOKEN registry.heroku.com
 
 # script:
 #   #build the image
@@ -27,11 +25,8 @@ before_install:
 
 script:
   - docker build --no-cache -t 1000003/asp-net-core-app-with-docker-support .
-  # - docker tag quarkus7/which-tram registry.heroku.com/$HEROKU_APP_NAME/web
-  # - docker tag 1000003/asp-net-core-app-with-docker-support:latest 1000003/asp-net-core-app-with-docker-support:registry.heroku.com/dummy-asp-net-core-app-v1/web
   # docker tag <image> registry.heroku.com/<app>/<process-type>
-  - docker tag 1000003/asp-net-core-app-with-docker-support:latest registry.heroku.com/dummy-asp-net-core-app-v1/web
+  - docker tag 1000003/asp-net-core-app-with-docker-support:latest registry.heroku.com/$HEROKU_APP_NAME/web
   - heroku container:login
-  - docker push registry.heroku.com/dummy-asp-net-core-app-v1/web
-  # - ( echo "$HEROKU_USERNAME" echo "$HEROKU_PASSWORD" ) | heroku login -i
-  - heroku container:release web --app dummy-asp-net-core-app-v1
+  - docker push registry.heroku.com/$HEROKU_APP_NAME/web
+  - heroku container:release web --app $HEROKU_APP_NAME
