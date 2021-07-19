@@ -3,7 +3,7 @@ mono: none
 dotnet: 5.0.101
 branches:
   only:
-    - master
+    - main
 services:
   #Enable docker service inside travis
   - docker
