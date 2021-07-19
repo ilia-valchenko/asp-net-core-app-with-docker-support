@@ -1,8 +1,18 @@
 language: csharp
 mono: none
 dotnet: 5.0.101
-script:
-  - dotnet restore
-  - dotnet build
+branches:
+  only:
+    - master
 services:
+  #Enable docker service inside travis
   - docker
+before_install:
+    - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+script:
+  #build the image
+  - docker build --no-cache -t 1000003/asp-net-core-app-with-docker-support .
+  #tag the build
+  - docker tag 1000003/asp-net-core-app-with-docker-support:latest 1000003/asp-net-core-app-with-docker-support:v1
+  #push the image to the repository
+  - docker push 1000003/asp-net-core-app-with-docker-support
