@@ -1,4 +1,4 @@
-# asp-net-core-app-with-docker-support
+# ASP .NET Core app with Docker support
 You can you the commands below to build an image and run a container:
 
 `docker build -t dummy-app-image-v1 .`
@@ -17,4 +17,3 @@ Use the credentials below to connect to the instance of SQL server
 ## Continuous Integration
 - Continuous integration service: Travis CI
 - Cloud platform: Heroku
-
